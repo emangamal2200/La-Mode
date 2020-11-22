@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1090003409579",
+    "firebase_url": "https://la-mode-a5513.firebaseio.com",
+    "project_id": "la-mode-a5513",
+    "storage_bucket": "la-mode-a5513.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090003409579:android:386e6679b93933c0abb5ee",
+        "android_client_info": {
+          "package_name": "com.example.la_mode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1090003409579-1ci741og0r39fenas2ku52ak7t0it8tl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.la_mode",
+            "certificate_hash": "c977910073f04bb0db46130f8d1fac84702ab255"
+          }
+        },
+        {
+          "client_id": "1090003409579-1rd8khos03jvf5a31kg0cj7msdlpmdob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2Xp3dSjO4rrT6I53IinNUjKsbJSIGgQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1090003409579-1rd8khos03jvf5a31kg0cj7msdlpmdob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
