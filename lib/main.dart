@@ -1,36 +1,43 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
+import 'package:la_mode/provider/modelHud.dart';
+import 'package:la_mode/provider/adminMode.dart';
+import 'package:la_mode/pages/begin.dart';
 import 'package:la_mode/pages/homepage.dart';
 import 'package:la_mode/pages/login.dart';
-import 'package:la_mode/pages/splash.dart';
+import 'package:la_mode/pages/sign up.dart';
+import 'package:la_mode/pages/adminHome.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-import 'package:la_mode/provider/userprovider.dart';
 
-void main() async{
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(ChangeNotifierProvider(create: (_) => UserProvider.initialize(),
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ModelHud>(
+          create: (context) => ModelHud(),
+        ),
+        ChangeNotifierProvider<AdminMode>(
+          create: (context) => AdminMode(),
+        ),
+      ],
       child: MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-        primaryColor: Colors.black
-    ),
-    home: ScreensController(),
-      )));
+        initialRoute: BeginScreen.id,
+        routes: {
+          BeginScreen.id: (context) => BeginScreen(),
+          LogIn.id: (context) => LogIn(),
+          SignUp.id: (context) => SignUp(),
+          HomePage.id: (context) => HomePage(),
+          AdminHome.id: (context) => AdminHome()
+        },
+      ),
+    );
   }
-  class ScreensController extends StatelessWidget {
-    @override
-    Widget build(BuildContext context) {
-      final user = Provider.of<UserProvider>(context);
-      switch(user.status){
-        case Status.Uninitialized:
-          return Splash();
-        case Status.Unauthenticated:
-        case Status.Authenticating:
-          return LogIn();
-        case Status.Authenticated:
-          return HomePage();
-        default: return LogIn();
-      }
-    }
-  }
+}

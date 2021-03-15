@@ -1,14 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:la_mode/components/horizontal_list view.dart';
 import 'package:la_mode/components/Products.dart';
 import 'package:la_mode/pages/Cart.dart';
-import 'package:la_mode/pages/login.dart';
-import 'package:la_mode/provider/userprovider.dart';
-import 'package:provider/provider.dart';
+
 
 class HomePage extends StatefulWidget{
+  static String id = 'HomePage';
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -19,9 +17,7 @@ class _HomePageState extends State <HomePage>{
   TextEditingController _searchTextController = TextEditingController();
   @override
   Widget build (BuildContext context){
-    final user = Provider.of<UserProvider>(context);
     Widget imageCarousel = new Container(
-
       height:200.0,
       child: new Carousel(
         images: [
@@ -146,9 +142,7 @@ class _HomePageState extends State <HomePage>{
                 ),
               ),
               InkWell(
-                onTap: (){
-                  user.signOut();
-                },
+                onTap: (){},
                 child: ListTile(
                   title: Text('Log out' ,style: TextStyle(color: Colors.white),),
                   leading: Icon(Icons.transit_enterexit, color: Colors.white,),
